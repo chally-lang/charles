@@ -1,16 +1,11 @@
+FROM n8nio/n8n
 
+# Optional: use a specific version
+# FROM n8nio/n8n:1.48.0
 
+# Working directory
+WORKDIR /data
 
-FROM node:18
-
-# Create app directory
-WORKDIR /app
-
-# Install n8n globally
-RUN npm install -g n8n
-
-# Expose port n8n runs on
-EXPOSE 5679
-
-# Start n8n server
-CMD ["n8n", "start"]
+# You can copy workflows or env if needed
+# COPY workflows /data/workflows
+# COPY .env /data/.env
