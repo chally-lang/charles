@@ -1,10 +1,16 @@
+
+
+
 FROM node:18
 
+# Create app directory
 WORKDIR /app
-COPY . .
 
+# Install n8n globally
 RUN npm install -g n8n
 
-EXPOSE 5678
+# Expose port n8n runs on
+EXPOSE 5679
 
-CMD ["n8n"]
+# Start n8n server
+CMD ["n8n", "start"]
