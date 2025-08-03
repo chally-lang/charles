@@ -1,0 +1,16 @@
+services
+  - type: web
+    name: n8n
+    runtime: node
+    repo: https://github.com/chally-lang/n8n-on-render
+    branch: main
+    buildCommand: npm install
+    startCommand: npx n8n
+    plan: free
+    envVars:
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: true
+      - key: N8N_BASIC_AUTH_USER
+        value: admin
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: pass123
