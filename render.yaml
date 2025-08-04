@@ -5,31 +5,25 @@ services:
     plan: free
     dockerfilePath: ./Dockerfile
     envVars:
-      - key: DB_TYPE
-        value: postgresdb
-      - key: DB_POSTGRESDB_HOST
-        value: ep-curly-truth-afcw4b5n-pooler.c-2.us-west-2.aws.neon.tech
-      - key: DB_POSTGRESDB_PORT
-        value: 5432
-      - key: DB_POSTGRESDB_DATABASE
-        value: n8ndb
-      - key: DB_POSTGRESDB_USER
-        value: neondb_owner
-      - key: DB_POSTGRESDB_PASSWORD
-        value: your_real_password_here
-      - key: DB_POSTGRESDB_SSL
-        value: true
-      - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
-        value: false
-      - key: N8N_ENCRYPTION_KEY
-        value: your_random_key_here
-      - key: N8N_BASIC_AUTH_USER
-        value: admin
-      - key: N8N_BASIC_AUTH_PASSWORD
-        value: changeme123
       - key: N8N_PORT
+        value: 5678
+      - key: PORT
         value: 5678
       - key: N8N_HOST
         value: logger-ysw1.onrender.com
       - key: WEBHOOK_URL
         value: https://logger-ysw1.onrender.com
+      - key: N8N_EDITOR_BASE_URL
+        value: https://logger-ysw1.onrender.com
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_CONNECTION_STRING
+        value: postgres://neondb_owner:yourRealPassword@ep-curly-truth-afcw4b5n-pooler.c-2.us-west-2.aws.neon.tech:5432/n8ndb?sslmode=require
+      - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
+        value: false
+      - key: N8N_ENCRYPTION_KEY
+        value: yourLongRandomKey
+      - key: N8N_BASIC_AUTH_USER
+        value: admin
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: changeme123
