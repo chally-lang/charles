@@ -9,11 +9,10 @@ ENV WEBHOOK_URL=https://logger-ysw1.onrender.com
 ENV N8N_EDITOR_BASE_URL=https://logger-ysw1.onrender.com
 
 # Optional: Disable extra UI settings in production
-ENV N8N_DISABLE_PRODUCTION_MAIN_MENU=true
+
 
 # Must match Render's port settings
 ENV N8N_PORT=5678
 ENV PORT=5678
 
-# Entry point (required by Render)
-CMD ["n8n"]
+# Entry point (required by Render
