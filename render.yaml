@@ -1,13 +1,10 @@
 services:
   - type: web
-    name: n8n-logger
+    name: n8n
     env: docker
     plan: free
-    region: oregon
     dockerfilePath: ./Dockerfile
-
     envVars:
-      # === PostgreSQL config (NeonDB) ===
       - key: DB_TYPE
         value: postgresdb
       - key: DB_POSTGRESDB_HOST
@@ -19,36 +16,20 @@ services:
       - key: DB_POSTGRESDB_USER
         value: neondb_owner
       - key: DB_POSTGRESDB_PASSWORD
-        value: your-neon-password-here
+        value: your_real_password_here
       - key: DB_POSTGRESDB_SSL
         value: true
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
         value: false
-
-      # === n8n security and webhook setup ===
       - key: N8N_ENCRYPTION_KEY
-        value: your-random-secret-key-here
+        value: your_random_key_here
       - key: N8N_BASIC_AUTH_USER
         value: admin
       - key: N8N_BASIC_AUTH_PASSWORD
         value: changeme123
-
-      # === Host config ===
       - key: N8N_PORT
-        value: 5678
-      - key: PORT
         value: 5678
       - key: N8N_HOST
         value: logger-ysw1.onrender.com
       - key: WEBHOOK_URL
         value: https://logger-ysw1.onrender.com
-      - key: N8N_EDITOR_BASE_URL
-        value: https://logger-ysw1.onrender.com        value: https://logger-ysw1.onrender.com
-      - key: N8N_EDITOR_BASE_URL
-        value: https://logger-ysw1.onrender.com
-
-      # Ports for Render to detect and expose correctly
-      - key: N8N_PORT
-        value: 5678
-      - key: PORT
-        value: 5678
