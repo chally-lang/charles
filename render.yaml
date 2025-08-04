@@ -1,16 +1,45 @@
-services
+services:
   - type: web
     name: n8n
-    runtime: node
-    repo: https://github.com/chally-lang/n8n-on-render
-    branch: main
-    buildCommand: npm install
-    startCommand: npx n8n
+    env: docker
     plan: free
+
     envVars:
-      - key: N8N_BASIC_AUTH_ACTIVE
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_HOST
+        value: ep-curly-truth-afcw4b5n-pooler.c-2.us-west-2.aws.neon.tech
+      - key: DB_POSTGRESDB_PORT
+        value: 5432
+      - key: DB_POSTGRESDB_DATABASE
+        value: n8ndb
+      - key: DB_POSTGRESDB_USER
+        value: neondb_owner
+      - key: DB_POSTGRESDB_PASSWORD
+        value: YOUR_REAL_PASSWORD_HERE
+      - key: DB_POSTGRESDB_SSL
         value: true
+
+      # Encryption key for credentials and sensitive data
+      - key: N8N_ENCRYPTION_KEY
+        value: ANY_RANDOM_SECRET_KEY_HERE
+
+      # Optional login auth
       - key: N8N_BASIC_AUTH_USER
         value: admin
       - key: N8N_BASIC_AUTH_PASSWORD
-        value: pass123
+        value: changeme123
+
+      # Webhook / Editor URL configuration
+      - key: N8N_HOST
+        value: logger-ysw1.onrender.com
+      - key: WEBHOOK_URL
+        value: https://logger-ysw1.onrender.com
+      - key: N8N_EDITOR_BASE_URL
+        value: https://logger-ysw1.onrender.com
+
+      # Ports for Render to detect and expose correctly
+      - key: N8N_PORT
+        value: 5678
+      - key: PORT
+        value: 5678
