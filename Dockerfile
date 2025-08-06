@@ -16,4 +16,4 @@ ENV N8N_PORT=5678
 ENV PORT=5678
 
 # Entry point (required by Render
-CMD ["n8n"]
+
